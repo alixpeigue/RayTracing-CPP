@@ -1,16 +1,25 @@
+#include <vector>
+
 #include <SFML/Graphics.hpp>
 
 #include "Camera.h"
+#include "Vector.h"
+#include "Drawables.h"
+#include "Vector.h"
 
 int main()
 {
-    Camera camera(200, 200);
+    std::vector<Drawable*> scene{
+        new Sphere(Vector(2, 2, 0), 0.5), 
+        };
+
+    Camera camera(Vector(), Vector(1, 1, 0), 200, 200, 2);
 
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 
     sf::Image image;
     
-    camera.RenderImage(image);
+    camera.renderImage(image, scene);
 
     sf::Texture texture;
     texture.loadFromImage(image);
@@ -31,6 +40,8 @@ int main()
         window.draw(sprite);
         window.display();
     }
+
+    delete scene[0];
 
     return 0;
 }

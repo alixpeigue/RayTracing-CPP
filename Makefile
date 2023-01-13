@@ -32,7 +32,7 @@ $(OBJDIR):
 debug:
 	make re CXXFLAGS="$(CXXFLAGS) $(DEBUGFLAGS)"
 
-clean: clean
+clean:
 	$(RM) -r $(OBJDIR)
 	$(RM) $(NAME)
 

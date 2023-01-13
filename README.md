@@ -9,3 +9,4 @@ To build it :
 - Clone the repo : `git clone https://github.com/alixpeigue/RayTracing-CPP.git`
 - Cd into the folder `cd RayTracing-CPP`
 - Compile with `make`
+- Run it with `./raytrace.out`

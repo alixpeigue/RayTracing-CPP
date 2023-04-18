@@ -28,12 +28,12 @@ std::ostream& operator<<(std::ostream& os, const Camera& cam)
     return os;
 }
 
-Ray Camera::getRay(int32_t x, int32_t y)
+Ray Camera::getRay(int32_t x, int32_t y) const
 {
     return Ray(planeDist*dir+(x-width/2)*hDir+(y-height/2)*vDir, pos);
 }
 
-sf::Image& Camera::renderImage(sf::Image & image, const std::vector<Drawable*>& scene)
+sf::Image&  Camera::renderImage(sf::Image& image, const std::vector<std::unique_ptr<Drawable>>& scene)
 {
     image.create(width, height);
 

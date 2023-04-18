@@ -13,31 +13,47 @@
 
 class Camera 
 {
-    public :
+    protected:
 
-    const int32_t height;
-    const int32_t width;
+    int32_t height;
+    int32_t width;
 
-    const float_t vfov;
-    const float_t hfov;
+    float_t vfov;
+    float_t hfov;
 
-    const float_t planeDist;
+    float_t planeDist;
 
-    const Vector pos;
-    const Vector dir;
+    Vector pos;
+    Vector dir;
 
-    const Vector hDir;
-    const Vector vDir;
+    Vector hDir;
+    Vector vDir;
+
+    public:
 
     Camera(const Vector& cPos, const Vector& cDir, int32_t w, int32_t h, float_t cFov);
 
+    Camera(const Camera& c);
+
+    Camera & operator = (const Camera& c) = default;
+
     friend std::ostream& operator<<(std::ostream& os, const Camera& cam);
 
-    Ray getRay(int32_t x, int32_t y);
+    sf::Image& renderImage(sf::Image& image, const std::vector<std::unique_ptr<Drawable>>& scene);
 
-    sf::Image& renderImage(sf::Image & image, const std::vector<Drawable*>& scene);
+    // Getters and setters
+
+    int32_t getHeight(){
+        return height;
+    }
+
+    int32_t getWidth(){
+        return width;
+    }
 
     protected:
+
+    Ray getRay(int32_t x, int32_t y) const;
 
     float_t getPlaneDist(int32_t width, float_t hfov)
     {

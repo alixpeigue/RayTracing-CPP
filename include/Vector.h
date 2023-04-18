@@ -8,15 +8,15 @@
 
 struct Vector
 {
-    const float_t x;
-    const float_t y;
-    const float_t z;
+    float_t x;
+    float_t y;
+    float_t z;
 
     Vector(float_t x1 = 0, float_t y1 = 0, float_t   z1 = 0): x(x1), y(y1), z(z1) {}
 
-    Vector(const Vector& v): x(v.x), y(v.y),z(v.z) {
-        //std::cout << "Copie de Vecteur" << std::endl;
-    }
+    Vector(const Vector& v) = default;
+
+    Vector& operator = (const Vector& v) = default;
     
     bool operator == (const Vector& v) const
     {

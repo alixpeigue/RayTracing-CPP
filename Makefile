@@ -8,7 +8,7 @@ OBJS = $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 # Commands
 CXX = g++
-CXXFLAGS = -ansi -Wall -pedantic -std=c++11 -Wextra -g -MD
+CXXFLAGS = -ansi -Wall -pedantic -std=c++17 -Wextra -g -MD
 CPPFLAGS = -Iinclude
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 DEBUGFLAGS = -DMAP
